@@ -11,7 +11,7 @@ export default defineConfig({
     ['allure-playwright'],
   ],
   use: {
-    video: 'retain-on-failure',     // Record video on failure
+    video: 'on',                    // Record all tests
     screenshot: 'only-on-failure',  // Screenshot on failure
     trace: 'on-first-retry',        // Trace on first retry
     baseURL: 'https://opensource-demo.orangehrmlive.com',
