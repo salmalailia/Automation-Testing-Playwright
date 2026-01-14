@@ -1,0 +1,35 @@
+1. Setup Instruction
+Install Node.js (v16+ recommended)
+
+Install Playwright
+— npm install
+— npx playwright install
+
+Install Allure
+— npm install -g allure-commandline
+
+2. Framework Structure
+├── pages/ # Page Object Model (POM) classes
+├── tests/ # Test specifications
+├── data/ # Test data (JSON, images, etc.)
+├── allure-results/ # Allure raw results (generated after tests)
+├── allure-report/ # Allure HTML report
+├── package.json # Node.js dependencies & scripts
+└── playwright.config.ts # Playwright configuration
+
+3. Dependencies Used
+Playwright
+— for browser automation (TypeScript)
+
+Allure Reporter
+— for generating test reports
+
+Node.js
+— JavaScript runtime
+
+4. How to Run the Tests
+— npx playwright test (run all test folder)
+— npx playwright test tests/Login.spec.ts (run in spesific test file)
+— npm run test:headed (for debugging)
+— npx playwright test --project=chromium (for spesific browser)
+— npm run report (reporting using allure)

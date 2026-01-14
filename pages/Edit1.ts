@@ -32,14 +32,14 @@ export class EditEmployeePage {
 
   // API call to update employee details dynamically
   async updateEmployeeAPI(firstName: string, lastName: string) {
-    const response = await this.page.evaluate(async (firstName: any, lastName: any) => {
+    const response = await this.page.evaluate(async (args: any) => {
       const res = await fetch('https://reqres.in/api/users/2', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ first_name: firstName, last_name: lastName }),
       });
       return res.json();
-    }, firstName, lastName);
+    }, { firstName, lastName });
 
     console.log('API Response via fetch:', response);
   }

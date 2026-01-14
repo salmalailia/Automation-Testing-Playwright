@@ -11,10 +11,10 @@ test('Test add, edit, and delete employee flow with data from JSON', async ({ pa
   const data = JSON.parse(fs.readFileSync('./data/employee.json', 'utf-8')); // Make sure the path is correct
 
   // Extract data from the JSON object
-  const firstName = data.employee.first_name;
-  const lastName = data.employee.last_name;
-  const employeeId = data.employee.employee_id;
-  const profilePicturePath = 'data/profile.png';
+  const firstName = data.firstName;
+  const lastName = data.lastName;
+  const employeeId = data.employeeId;
+  const fileInput = 'data/profile.png';
 
   // Instantiate Page Object Model classes
   const loginPage = new LoginPage(page);
@@ -29,7 +29,7 @@ test('Test add, edit, and delete employee flow with data from JSON', async ({ pa
 
   // Step 2: Add Employee
   await addEmployeePage.gotoPIM();
-  await addEmployeePage.addEmployee(firstName, lastName, profilePicturePath, employeeId);
+  await addEmployeePage.addEmployee(firstName, lastName, fileInput, employeeId);
   await addEmployeePage.verifyEmployeeCreated(firstName, lastName);
 
   // Step 3: Edit Employee
